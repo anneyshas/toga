@@ -323,4 +323,4 @@ async def test_instatiate_webview_with_content(widget, probe):
     content = "https://toga.readthedocs.io/en/latest/how-to/contribute/code.html#what-should-i-do"
     web_view = toga.WebView(content=content)
 
-    assert web_view.content == content
+    assert web_view._content == content

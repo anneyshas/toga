@@ -181,7 +181,7 @@ def test_set_widget_with_content_at_instantiation(widget):
     content = "https://toga.readthedocs.io/en/latest/how-to/contribute/code.html#what-should-i-do"
     web_view = toga.WebView(content=content)
 
-    assert web_view.content == content
+    assert web_view._content == content
 
 def test_user_agent(widget):
     """The user agent can be customized."""

@@ -318,3 +318,9 @@ async def test_dom_storage_enabled(widget, probe, on_load):
 }})()"""
     result = await wait_for(widget.evaluate_javascript(expression), JS_TIMEOUT)
     assert result == expected_value
+
+async def test_instatiate_webview_with_content(widget, probe):
+    content = "https://toga.readthedocs.io/en/latest/how-to/contribute/code.html#what-should-i-do"
+    web_view = toga.WebView(content=content)
+
+    assert web_view.content == content

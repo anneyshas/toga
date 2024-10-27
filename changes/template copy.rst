@@ -1,0 +1,1 @@
+Allow setting url when instantiating WebViewer.

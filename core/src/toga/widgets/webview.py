@@ -29,6 +29,7 @@ class WebView(Widget):
         url: str | None = None,
         user_agent: str | None = None,
         on_webview_load: OnWebViewLoadHandler | None = None,
+        content: str | None = None,
     ):
         """Create a new WebView widget.
 
@@ -46,10 +47,16 @@ class WebView(Widget):
 
         self._impl = self.factory.WebView(interface=self)
         self.user_agent = user_agent
+        self._content = content
 
         # Set the load handler before loading the first URL.
         self.on_webview_load = on_webview_load
-        self.url = url
+
+        # Load content if provided; otherwise, load the URL.
+        if content is not None:
+            self.set_content("", content)
+        else:
+            self.url = url
 
     def _set_url(self, url: str | None, future: asyncio.Future | None) -> None:
         # Utility method for validating and setting the URL with a future.

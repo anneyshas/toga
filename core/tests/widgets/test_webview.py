@@ -176,6 +176,11 @@ def test_set_content(widget):
         content="<h1>Fancy page</h1>",
     )
 
+def test_set_widget_with_content_at_instantiation(content):
+    """A webview widget can be instantiated with content"""
+    web_view = toga.WebView(content=content)
+
+    assert web_view.content == content
 
 def test_user_agent(widget):
     """The user agent can be customized."""

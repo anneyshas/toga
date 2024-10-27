@@ -176,8 +176,9 @@ def test_set_content(widget):
         content="<h1>Fancy page</h1>",
     )
 
-def test_set_widget_with_content_at_instantiation(content):
+def test_set_widget_with_content_at_instantiation(widget):
     """A webview widget can be instantiated with content"""
+    content = "https://toga.readthedocs.io/en/latest/how-to/contribute/code.html#what-should-i-do"
     web_view = toga.WebView(content=content)
 
     assert web_view.content == content
